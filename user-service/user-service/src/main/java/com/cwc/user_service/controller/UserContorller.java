@@ -15,6 +15,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -44,4 +46,38 @@ public class UserContorller {
         return userService.getUserById(id)
                 .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "User not foud")));
     }
+
+    @GetMapping("/db")
+    public ResponseEntity<List<User>> getUsersFromDb()
+    {
+        List<User> usersFromDb = userService.getUsersFromDb();
+        if(!usersFromDb.isEmpty())
+        {
+            return ResponseEntity
+                    .ok(usersFromDb);
+        }
+        else
+        {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .build();
+        }
+    }
+
+    @GetMapping("/db/{id}")
+    public ResponseEntity<User> getUserByIdFromDb(@PathVariable Long id)
+    {
+        Optional<User> user = userService.getUserByIdFromDb(id);
+        if(user.isPresent())
+        {
+            return ResponseEntity.ok(user.get());
+        }
+        else
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .build();
+        }
+    }
+
+
 }

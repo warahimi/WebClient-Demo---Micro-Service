@@ -58,6 +58,39 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+
+<!--		Add a reactive database dependency depending on your database type.-->
+<!--		For MongoDB: Use spring-boot-starter-data-mongodb-reactive.-->
+<!--		For R2DBC (Relational Databases like PostgreSQL, MySQL): Use spring-boot-starter-data-r2dbc.-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-r2dbc</artifactId>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; MySQL R2DBC driver &ndash;&gt;-->
+
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/dev.miku/r2dbc-mysql &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>dev.miku</groupId>-->
+<!--			<artifactId>r2dbc-mysql</artifactId>-->
+<!--			<version>0.8.2.RELEASE</version>-->
+<!--		</dependency>-->
+
+
+
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -70,6 +103,7 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
+
 	</dependencyManagement>
 
 	<build>
