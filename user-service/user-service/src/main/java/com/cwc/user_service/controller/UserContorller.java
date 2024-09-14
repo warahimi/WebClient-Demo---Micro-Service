@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserContorller {
     private final UserService userService;
